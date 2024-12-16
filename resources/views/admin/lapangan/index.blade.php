@@ -9,7 +9,7 @@
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-semibold">Daftar Lapangan</h2>
                     <a href="{{ route('admin.lapangan.create') }}" 
-                       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                       class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                         Tambah Lapangan
                     </a>
                 </div>
@@ -48,7 +48,7 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <a href="{{ route('admin.lapangan.edit', $lap->id) }}" 
-                                           class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
+                                           class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
                                         <form action="{{ route('admin.lapangan.destroy', $lap->id) }}" 
                                               method="POST" 
                                               class="inline-block">

@@ -4,37 +4,37 @@
             <!-- Logo dan Brand -->
             <div class="flex items-center">
                 <a href="/" class="flex items-center">
-                    {{-- <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 w-auto"> --}}
-                    <span class="ml-2 text-xl font-bold text-gray-800">Sportstation</span>
+                    <img src="{{ asset('images/logopweb.png') }}" alt="Logo" class="h-6 w-auto">
+                    <!-- <span class="ml-2 text-xl font-bold text-gray-800">Sportstation</span> -->
                 </a>
             </div>
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="/" class="text-gray-600 hover:text-blue-500 {{ request()->is('/') ? 'text-blue-500 font-semibold' : '' }}">
+                <a href="/" class="text-gray-600 hover:text-red-500 {{ request()->is('/') ? 'text-red-500 font-semibold' : '' }}">
                     Home
                 </a>
-                <a href="lapangan" class="text-gray-600 hover:text-blue-500 {{ request()->routeIs('lapangan') ? 'text-blue-500 font-semibold' : '' }}">
+                <a href="lapangan" class="text-gray-600 hover:text-red-500 {{ request()->routeIs('lapangan') ? 'text-red-500 font-semibold' : '' }}">
                     Lapangan
                 </a>
-                <a href="about" class="text-gray-600 hover:text-blue-500 {{ request()->routeIs('about') ? 'text-blue-500 font-semibold' : '' }}">
+                <a href="about" class="text-gray-600 hover:text-red-500 {{ request()->routeIs('about') ? 'text-red-500 font-semibold' : '' }}">
                     About
                 </a>
-                <a href="contact" class="text-gray-600 hover:text-blue-500 {{ request()->routeIs('contact') ? 'text-blue-500 font-semibold' : '' }}">
+                <a href="contact" class="text-gray-600 hover:text-red-500 {{ request()->routeIs('contact') ? 'text-red-500 font-semibold' : '' }}">
                     Contact
                 </a>
                 
                 <!-- Authentication Links -->
                 <div class="flex items-center space-x-4">
                     @auth
-                        <a href="{{ route('dashboard') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-150">
+                        <a href="{{ route('dashboard') }}" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-150">
                             Dashboard
                         </a>
                     @else
-                        <a href="login" class="text-gray-600 hover:text-blue-500">
+                        <a href="login" class="text-gray-600 hover:text-red-500">
                             Login
                         </a>
-                        <a href="register" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-150">
+                        <a href="register" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-150">
                             Daftar
                         </a>
                     @endauth
@@ -55,30 +55,30 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-500 hover:bg-gray-50 {{ request()->is('/') ? 'text-blue-500 bg-blue-50' : '' }}">
+            <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50 {{ request()->is('/') ? 'text-red-500 bg-blue-50' : '' }}">
                 Home
             </a>
-            <a href="lapangan" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-500 hover:bg-gray-50 {{ request()->routeIs('lapangan') ? 'text-blue-500 bg-blue-50' : '' }}">
+            <a href="lapangan" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50 {{ request()->routeIs('lapangan') ? 'text-red-500 bg-blue-50' : '' }}">
                 Lapangan
             </a>
-            <a href="about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-500 hover:bg-gray-50 {{ request()->routeIs('about') ? 'text-blue-500 bg-blue-50' : '' }}">
+            <a href="about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50 {{ request()->routeIs('about') ? 'text-red-500 bg-blue-50' : '' }}">
                 About
             </a>
-            <a href="contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-500 hover:bg-gray-50 {{ request()->routeIs('contact') ? 'text-blue-500 bg-blue-50' : '' }}">
+            <a href="contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50 {{ request()->routeIs('contact') ? 'text-red-500 bg-blue-50' : '' }}">
                 Contact
             </a>
             
             <!-- Mobile Authentication Links -->
             <div class="mt-4 pt-4 border-t border-gray-100">
                 @auth
-                    <a href="dashboard" class="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
+                    <a href="dashboard" class="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-red-500 hover:bg-red-600">
                         Dashboard
                     </a>
                 @else
-                    <a href="login" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-500 hover:bg-gray-50">
+                    <a href="login" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50">
                         Login
                     </a>
-                    <a href="register" class="block mt-2 w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
+                    <a href="register" class="block mt-2 w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-red-500 hover:bg-red-600">
                         Daftar
                     </a>
                 @endauth

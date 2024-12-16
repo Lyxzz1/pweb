@@ -10,7 +10,7 @@
                         <div class="flex justify-between items-center mb-6">
                             <h2 class="text-2xl font-semibold">Riwayat Booking</h2>
                             <a href="{{ route('booking.create') }}" 
-                               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                               class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                                 Booking Baru
                             </a>
                         </div>
@@ -55,7 +55,7 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <a href="{{ route('booking.show', $booking->id) }}" 
-                                                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                   class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                                                     Lihat
                                                 </a>
                                             </td>

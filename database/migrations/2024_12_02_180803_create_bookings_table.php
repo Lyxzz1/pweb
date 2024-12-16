@@ -16,7 +16,7 @@ return new class extends Migration
             $table->time('jam_mulai');
             $table->time('jam_selesai');
             $table->decimal('total_harga', 10, 2);
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->enum('status', ['pending', 'confirmed', 'cancelled','completed'])->default('pending');
             $table->text('catatan')->nullable();
             $table->timestamps();
         });

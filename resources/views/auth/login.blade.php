@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SportCenter</title>
+    <title>Login - Sportstation</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -63,7 +63,7 @@
                                    value="{{ old('email') }}" 
                                    required 
                                    autofocus
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
                                    placeholder="Masukkan email Anda">
                         </div>
 
@@ -77,7 +77,7 @@
                                        name="password" 
                                        id="password"
                                        required
-                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
                                        placeholder="Masukkan password Anda">
                                 <button type="button" 
                                         onclick="togglePassword()"
@@ -96,7 +96,7 @@
                                 <input type="checkbox" 
                                        name="remember" 
                                        id="remember"
-                                       class="h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500">
+                                       class="h-4 w-4 text-red-500 border-gray-300 rounded focus:ring-red-500">
                                 <label for="remember" class="ml-2 text-sm text-gray-600">
                                     Ingat saya
                                 </label>
@@ -104,7 +104,7 @@
 
                             @if (Route::has('password.request'))
                                 <a href="{{ route('password.request') }}" 
-                                   class="text-sm text-blue-500 hover:text-blue-600">
+                                   class="text-sm text-red-500 hover:text-red-600">
                                     Lupa password?
                                 </a>
                             @endif
@@ -112,7 +112,7 @@
 
                         <!-- Submit Button -->
                         <button type="submit" 
-                                class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
+                                class="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200">
                             Login
                         </button>
                     </form>
@@ -130,7 +130,7 @@
                     <!-- Register Link -->
                     <p class="text-center text-sm text-gray-600">
                         Belum punya akun?
-                        <a href="{{ route('register') }}" class="font-medium text-blue-500 hover:text-blue-600">
+                        <a href="{{ route('register') }}" class="font-medium text-red-500 hover:text-red-600">
                             Daftar sekarang
                         </a>
                     </p>

@@ -49,7 +49,7 @@
                                    value="{{ old('name') }}" 
                                    required 
                                    autofocus
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
                                    placeholder="Masukkan nama lengkap">
                         </div>
 
@@ -63,7 +63,7 @@
                                    id="email"
                                    value="{{ old('email') }}" 
                                    required
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
                                    placeholder="Masukkan email">
                         </div>
 
@@ -77,7 +77,7 @@
                                        name="password" 
                                        id="password"
                                        required
-                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
                                        placeholder="Minimal 8 karakter">
                                 <button type="button" 
                                         onclick="togglePassword('password', 'eye-icon')"
@@ -100,7 +100,7 @@
                                        name="password_confirmation" 
                                        id="password_confirmation"
                                        required
-                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500"
                                        placeholder="Ulangi password">
                                 <button type="button" 
                                         onclick="togglePassword('password_confirmation', 'eye-icon-confirm')"
@@ -120,17 +120,17 @@
                                        name="terms" 
                                        id="terms"
                                        required
-                                       class="mt-1 h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500">
+                                       class="mt-1 h-4 w-4 text-red-500 border-gray-300 rounded focus:ring-red-500">
                                 <label for="terms" class="ml-2 text-sm text-gray-600">
-                                    Saya setuju dengan <a href="#" class="text-blue-500 hover:text-blue-600">Syarat dan Ketentuan</a> 
-                                    serta <a href="#" class="text-blue-500 hover:text-blue-600">Kebijakan Privasi</a>
+                                    Saya setuju dengan <a href="#" class="text-red-500 hover:text-red-600">Syarat dan Ketentuan</a> 
+                                    serta <a href="#" class="text-red-500 hover:text-red-600">Kebijakan Privasi</a>
                                 </label>
                             </div>
                         </div>
 
                         <!-- Submit Button -->
                         <button type="submit" 
-                                class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">
+                                class="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200">
                             Daftar Sekarang
                         </button>
                     </form>
@@ -148,7 +148,7 @@
                     <!-- Login Link -->
                     <p class="text-center text-sm text-gray-600">
                         Sudah punya akun?
-                        <a href="{{ route('login') }}" class="font-medium text-blue-500 hover:text-blue-600">
+                        <a href="{{ route('login') }}" class="font-medium text-red-500 hover:text-red-600">
                             Login di sini
                         </a>
                     </p>

@@ -3,8 +3,8 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
                 <div class="flex items-center mb-4">
-                    <img src="{{ asset('images/logo-white.png') }}" alt="Logo" class="h-8 w-auto">
-                    <span class="ml-2 text-xl font-bold">Sportstation</span>
+                    <img src="{{ asset('images/logopweb.png') }}" alt="Logo" class="h-6 w-auto">
+                    <!-- <span class="ml-2 text-xl font-bold">Sportstation</span> -->
                 </div>
                 <p class="text-gray-400">
                     Platform booking lapangan olahraga online terpercaya

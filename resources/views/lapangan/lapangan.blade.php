@@ -37,9 +37,9 @@
                         <p class="text-gray-600 mb-4">{{ $l->deskripsi }}</p>
                         <p class="text-gray-800 font-bold mb-4">Rp {{ number_format($l->harga_per_jam, 0, ',', '.') }}/jam</p>
                         @auth
-                            <a href="{{ route('lapangan.pesan', $l->id) }}" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">Pesan Sekarang</a>
+                            <a href="{{ route('lapangan.pesan', $l->id) }}" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700">Pesan Sekarang</a>
                         @else
-                            <a href="{{ route('register') }}" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">Daftar untuk Memesan</a>
+                            <a href="{{ route('register') }}" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700">Daftar untuk Memesan</a>
                         @endauth
                     </div>
                 </div>
