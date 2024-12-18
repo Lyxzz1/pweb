@@ -21,7 +21,7 @@ class PelangganLapanganController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->search;
-        
+
         $lapangan = Lapangan::query()
             ->when($keyword, function($query) use ($keyword) {
                 return $query->where(function($q) use ($keyword) {

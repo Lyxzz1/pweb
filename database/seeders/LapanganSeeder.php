@@ -81,6 +81,13 @@ class LapanganSeeder extends Seeder
                 'gambar' => 'images/lapangan/tennis b.jpeg',
                 'status' => true,
             ],
+            [
+                'nama' => 'Lapangan Billiard Bourju',
+                'deskripsi' => 'Lapangan billiard yang modern dan keren',
+                'harga' => 50000,
+                'gambar' => 'images/lapangan/billiard a.jpeg',
+                'status' => true,
+            ],
         ];
 
         foreach ($lapangan as $lap) {

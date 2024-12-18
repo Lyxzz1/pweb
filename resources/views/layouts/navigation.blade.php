@@ -4,23 +4,23 @@
             <!-- Logo dan Brand -->
             <div class="flex items-center">
                 <a href="/" class="flex items-center">
-                    <img src="{{ asset('images/logopweb.png') }}" alt="Logo" class="h-6 w-auto">
+                    <img src="{{ asset('images/logopweb.png') }}" alt="Logo" class="h-10  w-auto">
                     <!-- <span class="ml-2 text-xl font-bold text-gray-800">Sportstation</span> -->
                 </a>
             </div>
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="/" class="text-gray-600 hover:text-red-500 {{ request()->is('/') ? 'text-red-500 font-semibold' : '' }}">
+                <a href="/" class="text-gray-600 transition duration-500 hover:text-red-500 {{ request()->is('/') ? 'text-red-500 font-semibold' : '' }}">
                     Home
                 </a>
-                <a href="lapangan" class="text-gray-600 hover:text-red-500 {{ request()->routeIs('lapangan') ? 'text-red-500 font-semibold' : '' }}">
+                <a href="lapangan" class="text-gray-600 transition duration-500 hover:text-red-500 {{ request()->routeIs('lapangan') ? 'text-red-500 font-semibold' : '' }}">
                     Lapangan
                 </a>
-                <a href="about" class="text-gray-600 hover:text-red-500 {{ request()->routeIs('about') ? 'text-red-500 font-semibold' : '' }}">
+                <a href="about" class="text-gray-600 transition duration-500 hover:text-red-500 {{ request()->routeIs('about') ? 'text-red-500 font-semibold' : '' }}">
                     About
                 </a>
-                <a href="contact" class="text-gray-600 hover:text-red-500 {{ request()->routeIs('contact') ? 'text-red-500 font-semibold' : '' }}">
+                <a href="contact" class="text-gray-600 transition duration-500 hover:text-red-500 {{ request()->routeIs('contact') ? 'text-red-500 font-semibold' : '' }}">
                     Contact
                 </a>
                 
@@ -31,10 +31,10 @@
                             Dashboard
                         </a>
                     @else
-                        <a href="login" class="text-gray-600 hover:text-red-500">
+                        <a href="login" class="text-gray-600 transition duration-300 hover:text-red-500">
                             Login
                         </a>
-                        <a href="register" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-150">
+                        <a href="register" class="bg-red-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-red-600 transition duration-150">
                             Daftar
                         </a>
                     @endauth

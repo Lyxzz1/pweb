@@ -101,9 +101,11 @@ class AdminBookingController extends Controller
 
     public function destroy(Booking $booking)
     {
+        $this->authorize('delete', $booking);
+
         $booking->delete();
 
-        return redirect()->route('admin.bookings.index')
-            ->with('success', 'Booking berhasil dihapus');
+        return redirect()->route('booking.index')->with('success', 'Booking berhasil dibatalkan.');
     }
+
 } 

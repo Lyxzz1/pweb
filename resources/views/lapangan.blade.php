@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Lapangan - Sportstation</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-100 font-[Poppins]">
@@ -15,16 +16,16 @@
     <div class="pt-20 pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header Section -->
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 pt-6">
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">Daftar Lapangan</h1>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    Temukan lapangan olahraga yang sesuai dengan kebutuhan Anda. 
+                    Temukan lapangan olahraga yang sesuai dengan kebutuhan Anda. <br>
                     Daftar sekarang untuk melakukan booking!
                 </p>
             </div>
 
             <!-- Lapangan Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div data-aos="fade-up" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($lapangan as $lap)
                     <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
                         <!-- Gambar Lapangan -->
@@ -110,4 +111,13 @@
     </script>
 
 </body>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // Durasi animasi dalam milidetik
+        easing: 'ease-in-out', // Efek easing
+        once: false // Animasi hanya berjalan sekali
+    });
+</script>
 </html>

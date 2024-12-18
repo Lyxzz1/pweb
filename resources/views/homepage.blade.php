@@ -6,6 +6,8 @@
     <title>Sportstation - Booking Lapangan Olahraga</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Font -->
+     <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,8 +20,8 @@
     @include('layouts.navigation')
 
     <!-- Hero Section -->
-    <section id="home" class="pt-20">
-        <div class="relative bg-gradient-to-r from-black to-white h-[600px]">
+    <section id="home" class="pt-12">
+        <div class="relative bg-gradient-to-r from-black to-white h-[700px]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
                 <div class="flex items-center h-full">
                     <div class="w-full md:w-1/2 text-white">
@@ -36,13 +38,13 @@
                                 Daftar Sekarang
                             </a>
                             <a href="#lapangan" 
-                               class="border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-red-600">
+                               class="border-2 border-white text-white px-6 py-3 rounded-md font-semibold transition duration-500 hover:bg-white hover:text-red-600">
                                 Lihat Lapangan
                             </a>
                         </div>
                     </div>
                     <div class="hidden md:block w-1/2">
-                        <img src="https://cdn.pixabay.com/photo/2015/03/26/22/13/football-693510_960_720.jpg" alt="Hero" class="w-full h-auto">
+                        <img src="https://cdn.pixabay.com/photo/2015/03/26/22/13/football-693510_960_720.jpg" alt="Hero" class="w-full h-auto rounded-2xl">
                     </div>
                 </div>
             </div>
@@ -51,7 +53,7 @@
 
     <!-- Features Section -->
     <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-aos="zoom-in" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Mengapa Memilih Kami?</h2>
                 <p class="text-gray-600">Nikmati berbagai keuntungan booking lapangan bersama kami</p>
@@ -93,14 +95,14 @@
 
     <!-- Lapangan Section -->
     <section id="lapangan" class="py-20 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-aos="fade-up" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Lapangan Kami</h2>
                 <p class="text-gray-600">Pilih lapangan sesuai dengan kebutuhan Anda</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 ">
                 @foreach($lapangan as $lap)
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-500 hover:shadow-2xl">
                     <img src="{{ asset('storage/' . $lap->gambar) }}" alt="{{ $lap->nama }}" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">{{ $lap->nama }}</h3>
@@ -114,7 +116,7 @@
                                 </a>
                             @else
                                 <a href="{{ route('login') }}" 
-                                   class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+                                   class="bg-red-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-red-600">
                                     Login untuk Booking
                                 </a>
                             @endauth
@@ -140,7 +142,7 @@
                         Dengan berbagai pilihan lapangan dan sistem booking yang terintegrasi, 
                         kami memastikan setiap pelanggan mendapatkan pelayanan terbaik untuk kebutuhan olahraga mereka.
                     </p>
-                    <div class="grid grid-cols-2 gap-6 text-center">
+                    <div class="grid grid-cols-2 gap-6 text-center pt-6">
                         <div>
                             <h4 class="text-3xl font-bold text-red-600">1000+</h4>
                             <p class="text-gray-600">Pelanggan Puas</p>
@@ -177,7 +179,7 @@
                                 </svg>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold">Alamat</h4>
-                                    <p class="text-gray-600">Jl. Contoh No. 123, Kota, Provinsi</p>
+                                    <p class="text-gray-600">Jl. Kalimantan No.67, Jember, Jawa Timur</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -195,7 +197,7 @@
                                 </svg>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold">Email</h4>
-                                    <p class="text-gray-600">info@Sportstation.com</p>
+                                    <p class="text-gray-600">sportstation@mail.com</p>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +220,7 @@
                                 <textarea id="message" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                             </div>
                             <div class="flex justify-end">
-                                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+                                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-md transition duration-300 hover:bg-red-600">
                                     Kirim Pesan
                                 </button>
                             </div>
@@ -241,4 +243,13 @@
         });
     </script>
 </body>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // Durasi animasi dalam milidetik
+        easing: 'ease-in-out', // Efek easing
+        once: false // Animasi hanya berjalan sekali
+    });
+</script>
 </html>

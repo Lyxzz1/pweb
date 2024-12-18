@@ -13,10 +13,10 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                 <ul class="space-y-2">
-                    <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
-                    <li><a href="#lapangan" class="text-gray-400 hover:text-white">Lapangan</a></li>
-                    <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
-                    <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="lapangan" class="text-gray-400 hover:text-white">Lapangan</a></li>
+                    <li><a href="about" class="text-gray-400 hover:text-white">About</a></li>
+                    <li><a href="contact" class="text-gray-400 hover:text-white">Contact</a></li>
                 </ul>
             </div>
             <div>

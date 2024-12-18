@@ -1,8 +1,9 @@
 <x-guest-layout>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="flex">
         @include('layouts.admin-sidebar')
 
-        <div class="flex-1 p-8 bg-gray-100">
+        <div class="flex-1  pl-72 p-8 bg-gray-100">
             <div class="bg-white rounded-lg shadow p-6">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-semibold">Daftar Booking</h2>
@@ -52,14 +53,19 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <a href="{{ route('admin.bookings.edit', $booking->id) }}" 
                                            class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
-                                        <form action="{{ route('admin.bookings.destroy', $booking->id) }}" 
+                                        <!-- <form action="{{ route('admin.bookings.destroy', $booking->id) }}" 
                                               method="POST" 
                                               class="inline-block">
                                             @csrf
+                                            @method('DELETE') -->
+                                        <form id="delete-form-{{ $booking->id }}" 
+                                            action="{{ route('admin.bookings.destroy', $booking->id) }}" 
+                                            method="POST" class="inline-block">
+                                            @csrf
                                             @method('DELETE')
-                                            <button type="submit" 
+                                            <button type="button" 
                                                     class="text-red-600 hover:text-red-900"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus booking ini?')">
+                                                    onclick="confirmDeletion('{{ $booking->id }}')">
                                                 Hapus
                                             </button>
                                         </form>
@@ -79,3 +85,20 @@
         </div>
     </div>
 </x-guest-layout> 
+<script>
+    function confirmDeletion(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data booking akan dihapus secara permanen!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(`delete-form-${id}`).submit();
+            }
+        });
+}</script>

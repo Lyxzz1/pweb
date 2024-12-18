@@ -17,6 +17,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "tailwind": "^4.0.0"
+        "tailwind": "^4.0.0",
+        "tailwindcss-animate": "^1.0.7"
     }
 }

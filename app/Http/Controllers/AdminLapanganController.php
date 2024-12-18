@@ -69,7 +69,7 @@ class AdminLapanganController extends Controller
         $lapangan->update($validated);
 
         return redirect()->route('admin.lapangan.index')
-            ->with('success', 'Lapangan berhasil diperbarui');
+            ->with('success');
     }
 
     public function destroy(Lapangan $lapangan)
@@ -81,6 +81,6 @@ class AdminLapanganController extends Controller
         $lapangan->delete();
 
         return redirect()->route('admin.lapangan.index')
-            ->with('success', 'Lapangan berhasil dihapus');
+            ->with('success');
     }
 }

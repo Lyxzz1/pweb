@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="flex">
         @include('layouts.pelanggan-sidebar')
 
@@ -54,15 +55,30 @@
                             </div>
                         @endif
 
-                        @if($booking->status === 'pending')
+                        @if($booking->status === 'confirmed')
                             <div class="flex justify-end space-x-4">
-                                <form action="{{ route('booking.destroy', $booking->id) }}" method="POST">
+                                <!-- Tombol Batalkan Booking -->
+                                <button type="button" 
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                        id="delete-button-{{ $booking->id }}">
+                                    Batalkan Booking
+                                </button>
+
+                                <!-- Form hidden untuk menghapus booking -->
+                                <form id="delete-form-{{ $booking->id }}" 
+                                    action="{{ route('booking.destroy', $booking->id) }}" 
+                                    method="POST" style="display: none;">
                                     @csrf
                                     @method('DELETE')
+                                </form>
+
+                                <!-- Tombol Bayar -->
+                                <form action="{{ route('customer.payment') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="booking_id" value="{{ $booking->id }}">
                                     <button type="submit" 
-                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                            onclick="return confirm('Apakah Anda yakin ingin membatalkan booking ini?')">
-                                        Batalkan Booking
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Bayar
                                     </button>
                                 </form>
                             </div>
@@ -72,4 +88,24 @@
             </div>
         </div>
     </div>
-</x-guest-layout> 
+
+    <!-- Script SweetAlert -->
+    <script>
+        document.getElementById('delete-button-{{ $booking->id }}').addEventListener('click', function () {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Booking akan dibatalkan dan tidak dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, batalkan!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form-{{ $booking->id }}').submit();
+                }
+            });
+        });
+    </script>
+</x-guest-layout>

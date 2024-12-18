@@ -71,14 +71,14 @@
                                name="gambar" 
                                id="gambar"
                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                               accept="image/*"
+                               accept="storage/*"
                                onchange="previewImage(event)">
                         <p class="text-gray-600 text-xs mt-1">Format: JPG, PNG, GIF (Max. 2MB)</p>
                         
                         <!-- Image Preview -->
                         <div id="imagePreview" class="mt-4">
                             <img id="preview" 
-                                 src="{{ $lapangan->gambar ? asset('images/lapangan/'.$lapangan->gambar) : '#' }}" 
+                                 src="{{ $lapangan->gambar ? asset('storage/'.$lapangan->gambar) : '#' }}" 
                                  alt="Preview" 
                                  class="max-w-xs rounded-lg shadow-lg {{ !$lapangan->gambar ? 'hidden' : '' }}">
                         </div>

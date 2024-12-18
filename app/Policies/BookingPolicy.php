@@ -14,6 +14,6 @@ class BookingPolicy
 
     public function delete(User $user, Booking $booking)
     {
-        return $user->id === $booking->user_id && $booking->status === 'pending';
+        return $user->id === $booking->user_id && $booking->status === 'confirmed';
     }
 } 

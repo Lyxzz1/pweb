@@ -4,7 +4,7 @@
         @include('layouts.admin-sidebar')
 
         <!-- Main Content -->
-        <div class="flex-1 p-8 bg-gray-100">
+        <div class="flex-1 pl-64 p-8 bg-gray-100">
             <div class="max-w-xl mx-auto">
                 <!-- Profile Information -->
                 <div class="bg-white shadow rounded-lg mb-6">
@@ -19,7 +19,7 @@
 
                         <form action="{{ route('admin.profile.update') }}" method="POST">
                             @csrf
-                            @method('patch')
+                            @method('put')
 
                             <div class="mb-4">
                                 <label for="name" class="block text-gray-700 text-sm font-bold mb-2">
@@ -51,7 +51,7 @@
 
                             <div class="flex justify-end">
                                 <button type="submit" 
-                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                        class="bg-red-500 transition duration-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     Simpan Perubahan
                                 </button>
                             </div>
@@ -66,7 +66,7 @@
 
                         <form action="{{ route('admin.password.update') }}" method="POST">
                             @csrf
-                            @method('put')
+                            @method('post')
 
                             <div class="mb-4">
                                 <label for="current_password" class="block text-gray-700 text-sm font-bold mb-2">
@@ -106,7 +106,7 @@
 
                             <div class="flex justify-end">
                                 <button type="submit" 
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                        class="bg-red-500 transition duration-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     Update Password
                                 </button>
                             </div>

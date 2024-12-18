@@ -1,4 +1,4 @@
-<div class="flex flex-col min-h-screen bg-gray-800 w-64">
+<div class="flex flex-col fixed top-0 left-0 min-h-screen h-screen bg-gray-800 w-64">
     <!-- Logo -->
     <div class="flex items-center justify-center h-20 bg-gray-900">
         <!-- <div class="flex items-center"> -->

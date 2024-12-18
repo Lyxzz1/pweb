@@ -16,7 +16,7 @@
                         <input type="text" 
                                name="search" 
                                placeholder="Cari lapangan..." 
-                               class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                               class="px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                                value="{{ request('search') }}">
                         <button type="submit" 
                                 class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
@@ -29,7 +29,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @if($lapangan->count() > 0)
                         @foreach($lapangan as $lap)
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
                                 <!-- Gambar Lapangan -->
                                 <div class="relative h-48">
                                     @if($lap->gambar)

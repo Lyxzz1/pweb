@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen pl-64 bg-gray-100">
         <div class="flex">
             <!-- Sidebar -->
             @include('layouts.admin-sidebar')

@@ -11,6 +11,7 @@ use App\Http\Controllers\PelangganProfileController;
 use App\Http\Controllers\PelangganDashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\PaymentController;
 use App\Models\Lapangan;
 use Illuminate\Support\Facades\Route;
 
@@ -40,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     // Route untuk profile (berlaku untuk semua user)
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Route khusus admin
@@ -78,10 +79,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/lapangan', [PelangganLapanganController::class, 'index'])->name('lapangan.index');
         Route::get('/lapangan/create', [PelangganLapanganController::class, 'create'])->name('lapangan.create');
         Route::post('/lapangan', [PelangganLapanganController::class, 'store'])->name('lapangan.store');
+        Route::get('/lapangan/search', [PelangganLapanganController::class, 'search'])->name('lapangan.search');
         Route::get('/lapangan/{lapangan}', [PelangganLapanganController::class, 'show'])->name('lapangan.show');
         Route::get('/lapangan/{lapangan}/edit', [PelangganLapanganController::class, 'edit'])->name('lapangan.edit');
         Route::put('/lapangan/{lapangan}', [PelangganLapanganController::class, 'update'])->name('lapangan.update');
         Route::delete('/lapangan/{lapangan}', [PelangganLapanganController::class, 'destroy'])->name('lapangan.destroy');
+        
 
         Route::get('/bookings', [pelangganBookingController::class, 'index'])->name('booking.index');
         Route::get('/bookings/create', [PelangganBookingController::class, 'create'])->name('booking.create');
@@ -89,18 +92,34 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/bookings/{booking}', [PelangganBookingController::class, 'show'])->name('booking.show');
         Route::get('/bookings/{booking}/edit', [PelangganBookingController::class, 'edit'])->name('booking.edit');
         Route::put('/bookings/{booking}', [PelangganBookingController::class, 'update'])->name('booking.update');
-        Route::delete('/bookings/{booking}', [PelangganBookingController::class, 'destroy'])->name('booking.destroy');
+        Route::delete('/booking/{booking}', [AdminBookingController::class, 'destroy'])
+            ->middleware(['auth', 'can:delete,booking'])
+            ->name('booking.destroy');
+
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::get('/customer/profile/edit', [ProfileController::class, 'edit'])->name('pelanggan.profile.edit');
         Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
         Route::post('/profile/password', [ProfileController::class, 'updatePassword'])->name('password.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-        Route::get('/lapangan/search', [PelangganLapanganController::class, 'search'])->name('lapangan.search');
-
+        // Route::get('/lapangan/search', [PelangganLapanganController::class, 'search'])->name('lapangan.search');
+        
     });
 
+    Route::post('/pelanggan/payment', [PaymentController::class, 'pay'])->name('customer.payment');
+    // Route untuk halaman pembayaran
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+    // Route untuk generate token Midtrans
+    Route::post('/payment/create', [PaymentController::class, 'createSnapToken'])->name('payment.create');
+    // Route untuk callback Midtrans
+    Route::post('/midtrans/callback', [PaymentController::class, 'callback'])->name('midtrans.callback');
+
+    Route::post('/midtrans/notification', [PaymentController::class, 'handleNotification']);
+
+
 });
+
 
 require __DIR__.'/auth.php';

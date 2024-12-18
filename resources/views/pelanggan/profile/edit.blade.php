@@ -1,4 +1,6 @@
 <x-guest-layout>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="flex h-screen bg-gray-100">
         @include('layouts.pelanggan-sidebar')
         
@@ -21,7 +23,7 @@
 
                             <form method="post" action="{{ route('profile.update') }}" class="space-y-6">
                                 @csrf
-                                @method('patch')
+                                @method('PUT')
 
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-gray-700">
@@ -31,7 +33,7 @@
                                            name="name" 
                                            id="name" 
                                            value="{{ old('name', $user->name) }}"
-                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                                            required>
                                     @error('name')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -46,7 +48,7 @@
                                            name="email" 
                                            id="email" 
                                            value="{{ old('email', $user->email) }}"
-                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                                            required>
                                     @error('email')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -55,7 +57,7 @@
 
                                 <div class="flex justify-end">
                                     <button type="submit" 
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                         Simpan Perubahan
                                     </button>
                                 </div>
@@ -81,7 +83,7 @@
                                     <input type="password" 
                                            name="current_password" 
                                            id="current_password"
-                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                                            required>
                                     @error('current_password')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -95,7 +97,7 @@
                                     <input type="password" 
                                            name="password" 
                                            id="password"
-                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                                            required>
                                     @error('password')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -109,13 +111,13 @@
                                     <input type="password" 
                                            name="password_confirmation" 
                                            id="password_confirmation"
-                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                                            required>
                                 </div>
 
                                 <div class="flex justify-end">
                                     <button type="submit" 
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                         Update Password
                                     </button>
                                 </div>
@@ -145,17 +147,17 @@
                                     <input type="password" 
                                            name="password" 
                                            id="delete_password"
-                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                                            required
                                            placeholder="Masukkan password Anda untuk konfirmasi">
                                 </div>
 
                                 <div class="flex justify-end">
-                                    <button type="submit" 
-                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus akun? Tindakan ini tidak dapat dibatalkan.')">
-                                        Hapus Akun
-                                    </button>
+                                <button type="button"
+                                        id="deleteAccountButton"
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Hapus Akun
+                                </button>
                                 </div>
                             </form>
                         </div>
@@ -164,4 +166,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('deleteAccountButton').addEventListener('click', function () {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: 'Setelah akun dihapus, semua data akan hilang secara permanen!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc2626',
+                cancelButtonColor: '#6b7280',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit form
+                    document.forms[document.forms.length - 1].submit();
+                }
+            });
+        });
+    </script>
 </x-guest-layout> 
