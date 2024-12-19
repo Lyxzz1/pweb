@@ -1,10 +1,11 @@
 <x-guest-layout>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="flex">
         <!-- Sidebar -->
         @include('layouts.admin-sidebar')
 
         <!-- Main Content -->
-        <div class="flex-1  pl-72 p-8 bg-gray-100">
+        <div class="flex-1  pl-72 p-6 bg-gray-100">
             <div class="bg-white rounded-lg shadow p-6">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-semibold">Daftar Lapangan</h2>
@@ -49,17 +50,15 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <a href="{{ route('admin.lapangan.edit', $lap->id) }}" 
                                            class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
-                                        <form action="{{ route('admin.lapangan.destroy', $lap->id) }}" 
-                                              method="POST" 
-                                              class="inline-block">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" 
-                                                    class="text-red-600 hover:text-red-900"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus lapangan ini?')">
-                                                Hapus
-                                            </button>
-                                        </form>
+                                           <form action="{{ route('admin.lapangan.destroy', $lap->id) }}" method="POST" id="delete-form-{{ $lap->id }}" class="inline-block">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" 
+                                                        class="text-red-600 hover:text-red-900"
+                                                        onclick="confirmDelete({{ $lap->id }}, '{{ $lap->nama }}')">
+                                                    Hapus
+                                                </button>
+                                            </form>
                                     </td>
                                 </tr>
                             @empty
@@ -75,4 +74,22 @@
             </div>
         </div>
     </div>
+<script>
+    function confirmDelete(id, name) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: `Anda akan menghapus lapangan "${name}". Tindakan ini tidak dapat dibatalkan!`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(`delete-form-${id}`).submit();
+            }
+        });
+    }
+</script>
 </x-guest-layout> 

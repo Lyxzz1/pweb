@@ -4,7 +4,7 @@
         @include('layouts.admin-sidebar')
 
         <!-- Main Content -->
-        <div class="flex-1 p-8 bg-gray-100">
+        <div class="flex-1 pl-72 p-8 bg-gray-100">
             <div class="bg-white rounded-lg shadow p-6">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-semibold">Tambah Lapangan</h2>
